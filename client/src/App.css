@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.AppContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.LoginContainer {
+  text-align: center;
+}
+
+.LoginCardContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
