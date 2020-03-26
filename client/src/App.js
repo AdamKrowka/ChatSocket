@@ -12,7 +12,10 @@ function App() {
   const [password, setPassword] = useState("");
   const [data, setData] = useState();
   const [logged, setLogged] = useState(false);
-  const [logInputEmpty, setLogInputEmpty] = useState({ logError: false, passError: false });
+  const [logInputEmpty, setLogInputEmpty] = useState({
+    logError: false,
+    passError: false
+  });
 
   useEffect(() => {
     setSocket(socketIOClient(endpoint));
@@ -30,16 +33,22 @@ function App() {
         console.log(data);
         setData(data);
       });
+
+      socket.on("activeUsers", users => {
+        console.log(users);
+      });
     }
   }, [socket]);
 
   const handleLoginSend = () => {
-    if (login !== "" && password !== "") socket.emit("loginRequest", { login, password });
+    if (login !== "" && password !== "")
+      socket.emit("loginRequest", { login, password });
     else if (login === "" && password !== "")
       setLogInputEmpty({ logError: true, passError: logInputEmpty.passError });
     else if (login !== "" && password === "")
       setLogInputEmpty({ logError: logInputEmpty.logError, passError: true });
-    else if (login === "" && password === "") setLogInputEmpty({ logError: true, passError: true });
+    else if (login === "" && password === "")
+      setLogInputEmpty({ logError: true, passError: true });
   };
   const handleLogin = e => {
     setLogin(e.target.value);
@@ -49,6 +58,7 @@ function App() {
   };
 
   const handleLogOut = e => {
+    socket.emit("logOut");
     setLogged(false);
     setData(null);
     setPassword(null);

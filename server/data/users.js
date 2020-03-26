@@ -3,22 +3,20 @@ export const users = [
     login: "janKowalski",
     password: "zaq1@WSX",
     name: "Jan",
-    surname: "Kowalski",
-    data: { message: "Your private data Jan Kowalski" }
+    surname: "Kowalski"
   },
   {
     login: "adamkrowka",
     password: "adam123",
     name: "Adam",
-    surname: "Krówka",
-    data: { message: "This is some data", salary: 1000000 }
+    surname: "Krówka"
   },
   {
     login: "admin",
     password: "admin",
     name: "Mariusz",
-    surname: "Polakowski",
-    data: { message: "Your are admin :D" }
+    surname: "Polakowski"
   }
 ];
 export const guests = [];
+export const loggedUsers = [];

@@ -6,13 +6,20 @@ import {
   TextField,
   Button,
   FormControl,
-  Grid
+  Grid,
+  Dialog
 } from "@material-ui/core";
 
-const LoginContainer = ({ handleLogin, handleLoginSend, handlePassword, logInputEmpty }) => {
+const LoginContainer = ({
+  handleLogin,
+  handleLoginSend,
+  handlePassword,
+  logInputEmpty
+}) => {
   const handleSubmit = e => {
     if (e.key === "Enter") handleLoginSend();
   };
+  const handleRegister = e => {};
 
   return (
     <Grid container>
@@ -41,7 +48,7 @@ const LoginContainer = ({ handleLogin, handleLoginSend, handlePassword, logInput
                 Login
               </Button>
             </FormControl>
-            <Button className="LoginButton" onClick={handleLoginSend}>
+            <Button className="LoginButton" onClick={handleRegister}>
               Register now
             </Button>
           </CardContent>
